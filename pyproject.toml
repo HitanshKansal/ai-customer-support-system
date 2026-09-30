@@ -1,0 +1,9 @@
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+addopts = "-ra --cov=backend --cov-report=term-missing --cov-fail-under=75"
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"

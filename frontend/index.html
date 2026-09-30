@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#102a43" />
+    <title>Support Desk</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <a class="brand" href="/" aria-label="Support Desk home">
+          <span class="brand-mark" aria-hidden="true">+</span>
+          <span>Support Desk</span>
+        </a>
+        <div class="account-bar">
+          <span id="account-label" class="account-label">Guest mode</span>
+          <button id="logout-button" class="button button-quiet hidden" type="button">Sign out</button>
+        </div>
+      </header>
+
+      <section id="auth-view" class="auth-layout" aria-labelledby="auth-title">
+        <div class="intro-panel">
+          <p class="eyebrow">Customer support, grounded in your policies</p>
+          <h1 id="auth-title">Get a clear answer and keep moving.</h1>
+          <p class="intro-copy">Ask about an order, payment, returns, or anything that needs a human specialist.</p>
+          <div class="trust-row"><span class="status-dot"></span><span>Support systems online</span></div>
+        </div>
+        <form id="auth-form" class="form-panel">
+          <div class="mode-switch" role="tablist" aria-label="Account mode">
+            <button class="mode-button active" type="button" data-mode="login">Sign in</button>
+            <button class="mode-button" type="button" data-mode="register">Create account</button>
+          </div>
+          <p id="auth-message" class="form-message" role="status"></p>
+          <label>Email<input id="email" type="email" autocomplete="email" required /></label>
+          <label id="name-field" class="hidden">Full name<input id="full-name" type="text" autocomplete="name" /></label>
+          <label>Password<input id="password" type="password" minlength="8" autocomplete="current-password" required /></label>
+          <button class="button button-primary button-wide" type="submit"><span id="auth-submit-label">Sign in</span><span aria-hidden="true">→</span></button>
+        </form>
+      </section>
+
+      <section id="chat-view" class="chat-layout hidden" aria-labelledby="chat-title">
+        <aside class="context-panel">
+          <div>
+            <p class="eyebrow">Your support desk</p>
+            <h1 id="chat-title">How can we help?</h1>
+            <p class="muted">Share the details you have. The assistant will check policy and account context before responding.</p>
+          </div>
+          <div class="context-fields">
+            <label>Order number <span class="optional">optional</span><input id="order-number" type="text" placeholder="e.g. 45821" /></label>
+            <label>Ticket ID <span class="optional">optional</span><input id="ticket-id" type="text" placeholder="For an existing case" /></label>
+          </div>
+          <div class="quick-actions" aria-label="Suggested questions">
+            <button type="button" class="suggestion" data-message="What is your refund policy?">Refund policy <span>↗</span></button>
+            <button type="button" class="suggestion" data-message="Can you check my order status?">Check an order <span>↗</span></button>
+            <button type="button" class="suggestion" data-message="I need to speak with a human.">Talk to a specialist <span>↗</span></button>
+          </div>
+        </aside>
+
+        <section class="conversation-panel">
+          <div id="conversation" class="conversation" aria-live="polite">
+            <div class="welcome-message">
+              <span class="welcome-icon" aria-hidden="true">✦</span>
+              <h2>Welcome to Support Desk</h2>
+              <p>Start with a question below. Your conversation stays tied to this support session.</p>
+            </div>
+          </div>
+          <form id="chat-form" class="composer">
+            <label class="sr-only" for="message">Your message</label>
+            <textarea id="message" rows="2" maxlength="10000" placeholder="Describe what you need help with..." required></textarea>
+            <div class="composer-footer">
+              <span class="composer-hint">Press Enter to send · Shift + Enter for a new line</span>
+              <button id="send-button" class="button button-primary" type="submit"><span>Send</span><span aria-hidden="true">↑</span></button>
+            </div>
+          </form>
+        </section>
+      </section>
+    </main>
+    <script src="/app.js" defer></script>
+  </body>
+</html>
